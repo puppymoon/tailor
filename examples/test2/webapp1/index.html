@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        body {
+            background-color: aquamarine;
+            color: black;
+        }
+    </style>
+    <script>
+        let url1 = 'https://stickershop.line-scdn.net/stickershop/v1/product/1014241/LINEStorePC/main.png;compress=true'
+        var startTime, endTime, responseTimeMs;
+        startTime = new Date().getTime();
+        fetch(url1)
+            .then((response) => {
+                return response.blob();
+            })
+            .then((imageBlob) => {
+                let img = document.createElement('IMG')
+                document.querySelector('#newImg1').appendChild(img);
+                // 將 blog 物件轉為 url
+                img.src = URL.createObjectURL(imageBlob);
+                endTime = new Date().getTime();
+                responseTimeMs = endTime - startTime;
+                document.getElementById("time1").innerHTML = responseTimeMs;
+            })
+    </script>
+</head>
+
+<body>
+    <h2>webapp1</h2>
+    <div>webapp1開啟花費的時間為: <span id="time1"></span>秒</div>
+    <div id="newImg1"></div>
+</body>
+
+</html>

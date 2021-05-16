@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        body {
+            background-color: aquamarine;
+            color: black;
+        }
+    </style>
+    <script>
+        let url2 = 'https://i.imgur.com/ravlC4z.jpg'
+        var startTime, endTime, responseTimeMs;
+        startTime = new Date().getTime();
+        fetch(url2)
+            .then((response) => {
+                return response.blob();
+            })
+            .then((imageBlob) => {
+                let img = document.createElement('IMG')
+                document.querySelector('#newImg2').appendChild(img);
+                // 將 blog 物件轉為 url
+                img.src = URL.createObjectURL(imageBlob);
+                endTime = new Date().getTime();
+                responseTimeMs = endTime - startTime;
+                document.getElementById("time2").innerHTML = responseTimeMs;
+            })
+    </script>
+</head>
+
+<body>
+    <h2>webapp2</h2>
+    <div>webapp2開啟花費的時間為: <span id="time2"></span>秒</div>
+    <div id="newImg2"></div>
+</body>
+
+</html>

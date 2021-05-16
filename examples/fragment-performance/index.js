@@ -3,7 +3,7 @@ const http = require('http');
 const Tailor = require('../../index');
 const serveFragment = require('../multiple-fragments-with-custom-amd/fragment');
 const tailor = new Tailor({
-    templatesPath: __dirname + '/templates',
+    templatesPath: '/Users/moontea/Documents/workspace/tailor/examples/fragment-performance/templates/index.html',
     pipeAttributes: attributes => {
         const timingGroups = attributes['timing-group']
             ? attributes['timing-group'].split(',')
